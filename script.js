@@ -173,3 +173,35 @@ mostrarAnimais();
 }
 
 mostrarAnimais();
+function login(){
+
+const email =
+document.getElementById("email").value;
+
+const senha =
+document.getElementById("senha").value;
+
+if(
+email === "admin@gmail.com"
+&&
+senha === "123"
+){
+
+localStorage.setItem(
+"logado",
+"true"
+);
+
+window.location.href =
+"./home.html";
+
+}
+
+else{
+
+alert("❌ Login inválido");
+
+}
+
+}
+
