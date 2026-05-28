@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
 <meta charset="UTF-8">
@@ -11,44 +13,62 @@ content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="style.css">
 
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
 
 <nav>
 
-    <h2>🐾 AdotePet</h2>
+<h2>🐾 AdotePet</h2>
 
-    <div class="menu">
+<div class="menu">
 
-        <a href="home.html">Início</a>
+<a href="home.html">
+Início
+</a>
 
-        <a href="cadastrar.html">
-            Cadastrar
-        </a>
+<a href="cadastrar.html">
+Cadastrar Animal
+</a>
 
-        <button onclick="logout()">
-            Sair
-        </button>
+<button onclick="logout()">
+Sair
+</button>
 
-    </div>
+</div>
 
 </nav>
 
 <header class="hero">
 
-    <h1>
-        🐶 Animais Disponíveis
-    </h1>
+<div>
+
+<h1>
+Adote um amigo ❤️
+</h1>
+
+<p>
+Encontre cães e gatos esperando por um novo lar.
+</p>
+
+</div>
 
 </header>
 
 <section class="pets">
 
-    <div class="cards"
-    id="cards">
+<h2>
+🐶 Animais Disponíveis
+</h2>
 
-    </div>
+<div
+class="cards"
+id="cards">
+
+</div>
 
 </section>
 
