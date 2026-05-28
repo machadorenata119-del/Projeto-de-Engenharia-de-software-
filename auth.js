@@ -1,109 +1,47 @@
-function mostrarSenha(){
-
-  const senha = document.getElementById("senha");
-
-  if(senha.type === "password"){
-    senha.type = "text";
-  }else{
-    senha.type = "password";
-  }
-
-}
-
-/* CADASTRO */
-
 function cadastrar(){
 
-  const nome =
-  document.getElementById("nome").value;
+  const nome = document.getElementById("nome").value;
+  const email = document.getElementById("novoEmail").value;
+  const senha = document.getElementById("novaSenha").value;
 
-  const email =
-  document.getElementById("novoEmail").value;
-
-  const senha =
-  document.getElementById("novaSenha").value;
-
-  // VALIDAÇÃO
-
-  if(nome === "" || email === "" || senha === ""){
-
-    alert("Preencha todos os campos!");
-
+  if(!nome || !email || !senha){
+    alert("Preencha tudo!");
     return;
-
   }
 
-  const usuario = {
+  const user = { nome, email, senha };
 
-    nome:nome,
-    email:email,
-    senha:senha
+  localStorage.setItem("user", JSON.stringify(user));
 
-  };
+  alert("Conta criada!");
 
-  // SALVAR NO LOCALSTORAGE
-
-  localStorage.setItem(
-    "usuario",
-    JSON.stringify(usuario)
-  );
-
-  alert("Conta criada com sucesso! ❤️");
-
-  window.location.href = "login.html";
-
+  window.location.href = "index.html";
 }
-
-/* LOGIN */
 
 function login(){
 
-  const email =
-  document.getElementById("email").value;
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
 
-  const senha =
-  document.getElementById("senha").value;
+  const user = JSON.parse(localStorage.getItem("user"));
 
-  const usuario =
-  JSON.parse(localStorage.getItem("usuario"));
-
-  // VERIFICA SE EXISTE CONTA
-
-  if(!usuario){
-
-    alert("Nenhuma conta cadastrada!");
-
+  if(!user){
+    alert("Crie uma conta primeiro!");
     return;
-
   }
 
-  // VERIFICA LOGIN
-
-  if(
-    email === usuario.email &&
-    senha === usuario.senha
-  ){
+  if(email === user.email && senha === user.senha){
 
     localStorage.setItem("logado","true");
 
-    alert("Login realizado com sucesso! 🐱");
-
-    window.location.href = "index.html";
+    window.location.href = "home.html";
 
   }else{
-
-    alert("Email ou senha incorretos!");
-
+    alert("Dados incorretos!");
   }
-
 }
 
-/* SAIR */
-
 function logout(){
-
   localStorage.removeItem("logado");
-
-  window.location.href = "login.html";
-
+  window.location.href = "index.html";
 }
