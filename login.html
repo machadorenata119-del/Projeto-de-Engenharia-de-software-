@@ -2,27 +2,52 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - AdotePet</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<div class="login-container">
-  <h1>🐱 AdotePet</h1>
+<body class="login-body">
 
-  <input type="email" id="email" placeholder="E-mail">
-  
-  <div class="senha-box">
-    <input type="password" id="senha" placeholder="Senha">
-    <button onclick="mostrarSenha()">👁️</button>
+<div class="login-box">
+
+  <div class="login-image">
+    <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=1200&auto=format&fit=crop" alt="">
   </div>
 
-  <button onclick="login()">Entrar</button>
+  <div class="login-form">
 
-  <p><a href="#">Esqueceu a senha?</a></p>
-  <p><a href="cadastro.html">Criar conta</a></p>
+    <h1>🐱 AdotePet</h1>
+
+    <p>Faça login para continuar</p>
+
+    <input type="email" id="email" placeholder="Digite seu e-mail">
+
+    <div class="senha-box">
+      <input type="password" id="senha" placeholder="Digite sua senha">
+
+      <button onclick="mostrarSenha()">👁️</button>
+    </div>
+
+    <button class="btn-login" onclick="login()">
+      Entrar
+    </button>
+
+    <p class="links">
+      <a href="#">Esqueceu a senha?</a>
+    </p>
+
+    <p class="links">
+      Não possui conta?
+      <a href="cadastro.html">Criar conta</a>
+    </p>
+
+  </div>
+
 </div>
 
 <script src="auth.js"></script>
+
 </body>
 </html>
