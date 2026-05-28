@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,9 +12,6 @@
 content="width=device-width, initial-scale=1.0">
 
 <title>AdotePet</title>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 
@@ -27,14 +26,12 @@ body{
 background:#f4f7fb;
 }
 
-/* NAVBAR */
-
 nav{
 
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
+padding:20px;
 background:white;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
 
@@ -46,74 +43,31 @@ color:#0d6efd;
 
 }
 
-.menu{
-
-display:flex;
-align-items:center;
-gap:15px;
-
-}
-
-.menu a{
-
-text-decoration:none;
-color:#333;
-font-weight:bold;
-
-}
-
-.menu button{
+nav button{
 
 padding:10px 20px;
 border:none;
 border-radius:10px;
 background:#dc3545;
 color:white;
-cursor:pointer;
 
 }
-
-/* HERO */
 
 .hero{
 
-height:250px;
-display:flex;
-justify-content:center;
-align-items:center;
+padding:50px;
+text-align:center;
 background:linear-gradient(135deg,#4facfe,#00c6fb);
 color:white;
-text-align:center;
-
-}
-
-.hero h1{
-
-font-size:50px;
-
-}
-
-.hero p{
-
-margin-top:10px;
-font-size:18px;
-
-}
-
-/* PETS */
-
-.pets{
-
-padding:50px 8%;
 
 }
 
 .cards{
 
+padding:40px;
 display:grid;
 grid-template-columns:
 repeat(auto-fit,minmax(300px,1fr));
-
 gap:30px;
 
 }
@@ -124,13 +78,6 @@ background:white;
 border-radius:20px;
 overflow:hidden;
 box-shadow:0 5px 20px rgba(0,0,0,0.1);
-transition:0.3s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
 
 }
 
@@ -157,10 +104,10 @@ color:#666;
 
 .buttons{
 
+padding:20px;
 display:flex;
 flex-direction:column;
 gap:10px;
-padding:20px;
 
 }
 
@@ -168,10 +115,9 @@ padding:20px;
 
 padding:12px;
 border:none;
-border-radius:12px;
-font-size:16px;
-cursor:pointer;
+border-radius:10px;
 color:white;
+font-size:16px;
 
 }
 
@@ -194,31 +140,6 @@ background:#dc3545;
 
 }
 
-.cadastrar{
-
-background:#0d6efd;
-
-}
-
-/* RESPONSIVO */
-
-@media(max-width:900px){
-
-.hero h1{
-
-font-size:35px;
-
-}
-
-nav{
-
-flex-direction:column;
-gap:15px;
-
-}
-
-}
-
 </style>
 
 </head>
@@ -231,59 +152,31 @@ gap:15px;
 🐾 AdotePet
 </h2>
 
-<div class="menu">
-
-<a href="#">
-Início
-</a>
-
-<button
-class="cadastrar"
-onclick="cadastrarAnimal()">
-
-Cadastrar Animal
-
-</button>
-
 <button onclick="logout()">
-
 Sair
-
 </button>
-
-</div>
 
 </nav>
 
-<header class="hero">
-
-<div>
+<section class="hero">
 
 <h1>
-Adote um amigo ❤️
+🐶 Animais para adoção
 </h1>
 
 <p>
-Animais esperando por um novo lar
+Encontre seu novo amigo ❤️
 </p>
 
-</div>
+</section>
 
-</header>
-
-<section class="pets">
-
-<div
+<section
 class="cards"
 id="cards">
-
-</div>
 
 </section>
 
 <script>
-
-// VERIFICAR LOGIN
 
 if(
 localStorage.getItem("logado")
@@ -295,8 +188,6 @@ window.location.href =
 
 }
 
-// LOGOUT
-
 function logout(){
 
 localStorage.removeItem(
@@ -307,8 +198,6 @@ window.location.href =
 "index.html";
 
 }
-
-// ANIMAIS
 
 let animais =
 JSON.parse(
@@ -333,10 +222,7 @@ imagem:"https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=800"
 descricao:"Muito carinhosa 🐱",
 adotado:false
 }
-
 ];
-
-// SALVAR
 
 function salvar(){
 
@@ -347,9 +233,7 @@ JSON.stringify(animais)
 
 }
 
-// MOSTRAR ANIMAIS
-
-function mostrarAnimais(){
+function mostrar(){
 
 const cards =
 document.getElementById("cards");
@@ -412,23 +296,15 @@ onclick="excluir(${index})">
 
 }
 
-// ADOTAR
-
 function adotar(index){
 
 animais[index].adotado = true;
 
 salvar();
 
-mostrarAnimais();
-
-alert(
-"🐾 Solicitação enviada!"
-);
+mostrar();
 
 }
-
-// EDITAR
 
 function editar(index){
 
@@ -445,13 +321,11 @@ novoNome;
 
 salvar();
 
-mostrarAnimais();
+mostrar();
 
 }
 
 }
-
-// EXCLUIR
 
 function excluir(index){
 
@@ -459,71 +333,13 @@ animais.splice(index,1);
 
 salvar();
 
-mostrarAnimais();
+mostrar();
 
 }
 
-// CADASTRAR
-
-function cadastrarAnimal(){
-
-const nome =
-prompt("Nome do animal:");
-
-if(!nome) return;
-
-const raca =
-prompt("Raça:");
-
-const idade =
-prompt("Idade:");
-
-const imagem =
-prompt("URL da imagem:");
-
-const descricao =
-prompt("Descrição:");
-
-animais.push({
-
-nome,
-raca,
-idade,
-imagem,
-descricao,
-adotado:false
-
-});
-
-salvar();
-
-mostrarAnimais();
-
-}
-
-// INICIAR
-
-mostrarAnimais();
+mostrar();
 
 </script>
 
 </body>
-</html>
-
-
-<!DOCTYPE html>
-<html>
-
-<head>
-<title>Home</title>
-</head>
-
-<body>
-
-<h1>
-HOME FUNCIONANDO ✅
-</h1>
-
-</body>
-
 </html>
