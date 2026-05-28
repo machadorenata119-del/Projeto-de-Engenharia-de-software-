@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>AdotePet</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    if(localStorage.getItem("logado") !== "true"){
+      window.location.href = "index.html";
+    }
+  </script>
+</head>
+
+<body>
+
+<header>
+  <h1>🐱 AdotePet</h1>
+  <button onclick="logout()">Sair</button>
+</header>
+
+<section class="formulario">
+  <h2>Novo Pet</h2>
+
+  <input id="nomePet" placeholder="Nome">
+  <input id="idadePet" placeholder="Idade">
+  <input id="racaPet" placeholder="Raça">
+  <input id="imagemPet" placeholder="URL da imagem">
+
+  <button onclick="adicionarPet()">Adicionar</button>
+</section>
+
+<section id="listaPets" class="pets-container"></section>
+
+<script src="pets.js"></script>
+</body>
+</html>
