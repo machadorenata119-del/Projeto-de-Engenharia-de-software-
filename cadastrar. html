@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Cadastrar Animal</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h1>
+🐾 Cadastrar Animal
+</h1>
+
+<input type="text"
+placeholder="Nome do animal">
+
+<select>
+
+<option>Labrador</option>
+<option>Golden Retriever</option>
+<option>Poodle</option>
+<option>Vira-lata</option>
+<option>Persa</option>
+
+</select>
+
+<input type="text"
+placeholder="Idade">
+
+<input type="text"
+placeholder="URL da imagem">
+
+<textarea
+placeholder="Descrição"></textarea>
+
+<button>
+Cadastrar Animal
+</button>
+
+</div>
+
+</body>
+</html>
