@@ -1,4 +1,13 @@
-// VERIFICAR LOGIN
+// PROTEGER PÁGINAS
+
+const pagina =
+window.location.pathname;
+
+if(
+pagina.includes("home.html")
+||
+pagina.includes("cadastrar.html")
+){
 
 if(
 localStorage.getItem("logado")
@@ -6,7 +15,9 @@ localStorage.getItem("logado")
 ){
 
 window.location.href =
-"index.html";
+"./index.html";
+
+}
 
 }
 
@@ -19,11 +30,11 @@ localStorage.removeItem(
 );
 
 window.location.href =
-"index.html";
+"./index.html";
 
 }
 
-// LISTA DE ANIMAIS
+// DADOS
 
 let animais =
 JSON.parse(
@@ -37,15 +48,6 @@ raca:"Labrador",
 idade:"2 anos",
 imagem:"https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800",
 descricao:"Muito brincalhão ❤️",
-adotado:false
-},
-
-{
-nome:"Luna",
-raca:"Persa",
-idade:"1 ano",
-imagem:"https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=800",
-descricao:"Muito carinhosa 🐱",
 adotado:false
 }
 ];
@@ -61,7 +63,7 @@ JSON.stringify(animais)
 
 }
 
-// MOSTRAR ANIMAIS
+// MOSTRAR
 
 function mostrarAnimais(){
 
@@ -94,25 +96,19 @@ ${animal.descricao}
 
 <div class="buttons">
 
-<button
-class="adotar"
-onclick="adotar(${index})">
+<button onclick="adotar(${index})">
 
 ${animal.adotado ? "✅ Adotado" : "❤️ Adotar"}
 
 </button>
 
-<button
-class="editar"
-onclick="editar(${index})">
+<button onclick="editar(${index})">
 
 ✏️ Editar
 
 </button>
 
-<button
-class="excluir"
-onclick="excluir(${index})">
+<button onclick="excluir(${index})">
 
 🗑️ Excluir
 
@@ -132,15 +128,12 @@ onclick="excluir(${index})">
 
 function adotar(index){
 
-animais[index].adotado = true;
+animais[index].adotado =
+true;
 
 salvar();
 
 mostrarAnimais();
-
-alert(
-"🐾 Solicitação enviada!"
-);
 
 }
 
@@ -176,43 +169,6 @@ animais.splice(index,1);
 salvar();
 
 mostrarAnimais();
-
-}
-
-// CADASTRAR
-
-function cadastrarAnimal(){
-
-const nome =
-document.getElementById("nome").value;
-
-const raca =
-document.getElementById("raca").value;
-
-const idade =
-document.getElementById("idade").value;
-
-const imagem =
-document.getElementById("imagem").value;
-
-const descricao =
-document.getElementById("descricao").value;
-
-animais.push({
-
-nome,
-raca,
-idade,
-imagem,
-descricao,
-adotado:false
-
-});
-
-salvar();
-
-window.location.href =
-"home.html";
 
 }
 
