@@ -269,3 +269,148 @@ header button{
   }
 
 }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:#f5f5f5;
+}
+
+/* FUNDO */
+
+.login-bg{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff4d6d,#ffb703);
+}
+
+/* CONTAINER PRINCIPAL */
+
+.login-container{
+  width:850px;
+  height:500px;
+  display:flex;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* LADO ESQUERDO */
+
+.login-image{
+  flex:1;
+  background:url('https://images.unsplash.com/photo-1511044568932-338cba0ad803?auto=format&fit=crop&w=1000&q=80');
+  background-size:cover;
+  background-position:center;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:30px;
+  position:relative;
+}
+
+.login-image::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+}
+
+.login-image h1,
+.login-image p{
+  position:relative;
+  z-index:1;
+}
+
+/* LADO DIREITO */
+
+.login-box{
+  flex:1;
+  background:white;
+  padding:50px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.login-box h2{
+  color:#ff4d6d;
+  margin-bottom:10px;
+}
+
+.login-box p{
+  margin-bottom:20px;
+  color:#666;
+}
+
+/* INPUTS */
+
+input{
+  padding:14px;
+  margin:10px 0;
+  border:1px solid #ddd;
+  border-radius:10px;
+  outline:none;
+  transition:0.3s;
+}
+
+input:focus{
+  border-color:#ff4d6d;
+}
+
+/* BOTÃO */
+
+button{
+  padding:14px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+  background:#ff4d6d;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.03);
+  background:#e63956;
+}
+
+/* LINK */
+
+a{
+  margin-top:15px;
+  text-align:center;
+  display:block;
+  color:#ff4d6d;
+  text-decoration:none;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+  .login-container{
+    flex-direction:column;
+    width:95%;
+    height:auto;
+  }
+
+  .login-image{
+    height:200px;
+  }
+
+  .login-box{
+    padding:30px;
+  }
+}
