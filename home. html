@@ -13,16 +13,15 @@ content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
 
 <body>
 
 <nav>
 
-<h2>🐾 AdotePet</h2>
+<h2>
+🐾 AdotePet
+</h2>
 
 <div class="menu">
 
@@ -31,7 +30,7 @@ Início
 </a>
 
 <a href="cadastrar.html">
-Cadastrar Animal
+Cadastrar
 </a>
 
 <button onclick="logout()">
@@ -42,27 +41,15 @@ Sair
 
 </nav>
 
-<header class="hero">
-
-<div>
+<section class="hero">
 
 <h1>
-Adote um amigo ❤️
+🐶 Animais Disponíveis
 </h1>
 
-<p>
-Encontre cães e gatos esperando por um novo lar.
-</p>
-
-</div>
-
-</header>
+</section>
 
 <section class="pets">
-
-<h2>
-🐶 Animais Disponíveis
-</h2>
 
 <div
 class="cards"
@@ -72,7 +59,7 @@ id="cards">
 
 </section>
 
-<script src="script.js"></script>
+<script src="./script.js"></script>
 
 </body>
 </html>
