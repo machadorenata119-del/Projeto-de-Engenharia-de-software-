@@ -2,15 +2,113 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: Arial;
+  font-family:Arial;
 }
 
 body{
   background:#f5f5f5;
 }
 
+/* LOGIN */
+
+.login-body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff9800,#ff5722);
+}
+
+.login-box{
+  width:900px;
+  height:500px;
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  display:flex;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.login-image{
+  width:50%;
+}
+
+.login-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.login-form{
+  width:50%;
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.login-form h1{
+  color:#ff5722;
+  margin-bottom:10px;
+  font-size:40px;
+}
+
+.login-form p{
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:#f1f1f1;
+  margin:10px 0;
+  font-size:16px;
+}
+
+.senha-box{
+  display:flex;
+  gap:10px;
+}
+
+.senha-box button{
+  width:60px;
+}
+
+button{
+  border:none;
+  cursor:pointer;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.btn-login{
+  background:#ff5722;
+  color:white;
+  padding:15px;
+  font-size:17px;
+  margin-top:15px;
+}
+
+.btn-login:hover{
+  transform:scale(1.03);
+  background:#e64a19;
+}
+
+.links{
+  margin-top:15px;
+}
+
+.links a{
+  color:#ff5722;
+  text-decoration:none;
+}
+
+/* HEADER */
+
 header{
-  background:#ff7b00;
+  background:#ff5722;
   color:white;
   padding:20px;
   display:flex;
@@ -18,89 +116,156 @@ header{
   align-items:center;
 }
 
-.login-container{
-  width:350px;
+header button{
   background:white;
-  margin:100px auto;
-  padding:30px;
-  border-radius:15px;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  color:#ff5722;
+  padding:10px 20px;
 }
 
-.login-container h1{
-  text-align:center;
-  margin-bottom:20px;
-}
+/* BANNER */
 
-input{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border-radius:10px;
-  border:1px solid #ccc;
-}
-
-button{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  background:#ff7b00;
-  color:white;
-  cursor:pointer;
-  font-size:16px;
-}
-
-button:hover{
-  background:#e66a00;
-}
-
-.senha-box{
+.banner{
+  height:350px;
+  background:url('https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=1200&auto=format&fit=crop');
+  background-size:cover;
+  background-position:center;
   display:flex;
-  gap:5px;
+  align-items:center;
+  justify-content:center;
 }
+
+.overlay{
+  background:rgba(0,0,0,0.5);
+  width:100%;
+  height:100%;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.overlay h2{
+  font-size:45px;
+}
+
+.overlay p{
+  font-size:20px;
+}
+
+/* FORM */
+
+.formulario{
+  background:white;
+  width:90%;
+  margin:30px auto;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.formulario h2{
+  margin-bottom:20px;
+  color:#ff5722;
+}
+
+.formulario button{
+  width:100%;
+  background:#ff5722;
+  color:white;
+  padding:15px;
+  margin-top:10px;
+}
+
+/* PETS */
 
 .pets-container{
+  width:90%;
+  margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  padding:20px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+  padding-bottom:50px;
 }
 
 .card{
   background:white;
-  border-radius:15px;
+  border-radius:20px;
   overflow:hidden;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
 }
 
 .card img{
   width:100%;
-  height:220px;
+  height:250px;
   object-fit:cover;
 }
 
 .card-content{
-  padding:15px;
+  padding:20px;
 }
 
 .card-content h3{
+  color:#ff5722;
   margin-bottom:10px;
 }
 
-.card-content p{
-  margin:5px 0;
+.status{
+  margin-top:10px;
+  font-weight:bold;
 }
 
 .acoes{
   display:flex;
   gap:10px;
-  margin-top:15px;
+  margin-top:20px;
 }
 
-.form-pet{
-  background:white;
-  padding:20px;
-  margin:20px;
-  border-radius:15px;
+.acoes button{
+  flex:1;
+  padding:10px;
+  color:white;
+}
+
+.btn-adotar{
+  background:#4caf50;
+}
+
+.btn-editar{
+  background:#2196f3;
+}
+
+.btn-excluir{
+  background:#f44336;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+  .login-box{
+    width:95%;
+    flex-direction:column;
+    height:auto;
+  }
+
+  .login-image{
+    width:100%;
+    height:250px;
+  }
+
+  .login-form{
+    width:100%;
+  }
+
+  .overlay h2{
+    font-size:28px;
+    text-align:center;
+  }
+
 }
