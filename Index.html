@@ -1,3 +1,7 @@
+🔐 LOGIN ATUALIZADO (com Criar Conta)
+
+📄 index.html
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,14 +23,17 @@
   <div class="login-box">
 
     <h2>Bem-vindo</h2>
-    <p>Faça login para continuar</p>
+    <p>Faça login ou crie sua conta</p>
 
     <input type="email" id="email" placeholder="E-mail">
     <input type="password" id="senha" placeholder="Senha">
 
     <button onclick="login()">Entrar</button>
 
-    <a href="home.html">Entrar como visitante</a>
+    <!-- CRIAR CONTA -->
+    <button class="btn-secondary" onclick="irCadastro()">
+      Criar conta
+    </button>
 
   </div>
 
@@ -35,3 +42,4 @@
 <script src="auth.js"></script>
 </body>
 </html>
+
