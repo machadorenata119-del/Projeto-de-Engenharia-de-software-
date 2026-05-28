@@ -414,3 +414,12 @@ a{
     padding:30px;
   }
 }
+btn-secondary{
+  margin-top:10px;
+  background:#333;
+  color:white;
+}
+
+.btn-secondary:hover{
+  background:#000;
+}
