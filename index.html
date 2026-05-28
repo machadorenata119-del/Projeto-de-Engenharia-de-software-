@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
 <meta charset="UTF-8">
@@ -9,83 +10,32 @@ content="width=device-width, initial-scale=1.0">
 
 <title>AdotePet Login</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-</head>
+<style>
 
-<body>
-
-<div class="login-container">
-
-<div class="login-box">
-
-<h1>🐾 AdotePet</h1>
-
-<p>
-Faça login para continuar
-</p>
-
-<input
-type="email"
-id="email"
-placeholder="Email">
-
-<input
-type="password"
-id="senha"
-placeholder="Senha">
-
-<button onclick="login()">
-
-Entrar
-
-</button>
-
-<a href="cadastro-user.html">
-
-Criar conta
-
-</a>
-
-</div>
-
-</div>
-
-<script>
-
-function login(){
-
-const email =
-document.getElementById("email").value;
-
-const senha =
-document.getElementById("senha").value;
-
-if(
-email === "admin@gmail.com"
-&&
-senha === "123"
-){
-
-localStorage.setItem(
-"logado",
-"true"
-);
-
-window.location.href =
-"./home.html";
-
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
 }
 
-else{
-
-alert("Login inválido");
-
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#4facfe,#00c6fb);
+overflow:hidden;
 }
 
-}
+/* FUNDO */
 
-</script>
+.background{
 
-</body>
-</html>
+position:absolute;
+width:100%;
+height:100%;
+background:url('https://images.unsplash.com/photo-151784
