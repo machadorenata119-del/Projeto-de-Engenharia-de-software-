@@ -1,30 +1,625 @@
+🏠 index.html (Página Principal)
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AdotePet</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <script>
+    // Verifica login
+    const usuarioLogado = localStorage.getItem("logado");
+
+    if(usuarioLogado !== "true"){
+      window.location.href = "login.html";
+    }
+  </script>
 </head>
+
 <body>
 
 <header>
   <h1>🐱 AdotePet</h1>
+
   <button onclick="logout()">Sair</button>
 </header>
 
-<section class="form-pet">
-  <h2>Adicionar Novo Pet</h2>
-
-  <input type="text" id="nomePet" placeholder="Nome do gato">
-  <input type="number" id="idadePet" placeholder="Idade">
-  <input type="text" id="racaPet" placeholder="Raça">
-  <input type="text" id="imagemPet" placeholder="URL da imagem">
-
-  <button onclick="adicionarPet()">Adicionar</button>
+<section class="banner">
+  <div class="overlay">
+    <h2>Encontre seu novo melhor amigo ❤️</h2>
+    <p>Adote um gatinho e transforme vidas</p>
+  </div>
 </section>
 
-<section id="listaPets" class="pets-container"></section>
+<section class="formulario">
+  <h2>Adicionar Novo Gatinho</h2>
+
+  <input type="text" id="nomePet" placeholder="Nome do gatinho">
+
+  <input type="number" id="idadePet" placeholder="Idade em meses">
+
+  <input type="text" id="racaPet" placeholder="Raça">
+
+  <input type="text" id="imagemPet" placeholder="URL da imagem">
+
+  <button onclick="adicionarPet()">Adicionar Pet</button>
+</section>
+
+<section class="pets-container" id="listaPets"></section>
 
 <script src="pets.js"></script>
+
 </body>
 </html>
+
+---
+
+🔐 login.html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - AdotePet</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-body">
+
+<div class="login-box">
+
+  <div class="login-image">
+    <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=1200&auto=format&fit=crop" alt="">
+  </div>
+
+  <div class="login-form">
+
+    <h1>🐱 AdotePet</h1>
+
+    <p>Faça login para continuar</p>
+
+    <input type="email" id="email" placeholder="Digite seu e-mail">
+
+    <div class="senha-box">
+      <input type="password" id="senha" placeholder="Digite sua senha">
+
+      <button onclick="mostrarSenha()">👁️</button>
+    </div>
+
+    <button class="btn-login" onclick="login()">
+      Entrar
+    </button>
+
+    <p class="links">
+      <a href="#">Esqueceu a senha?</a>
+    </p>
+
+    <p class="links">
+      Não possui conta?
+      <a href="cadastro.html">Criar conta</a>
+    </p>
+
+  </div>
+
+</div>
+
+<script src="auth.js"></script>
+
+</body>
+</html>
+
+---
+
+🎨 style.css
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:#f5f5f5;
+}
+
+/* LOGIN */
+
+.login-body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff9800,#ff5722);
+}
+
+.login-box{
+  width:900px;
+  height:500px;
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  display:flex;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.login-image{
+  width:50%;
+}
+
+.login-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.login-form{
+  width:50%;
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.login-form h1{
+  color:#ff5722;
+  margin-bottom:10px;
+  font-size:40px;
+}
+
+.login-form p{
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:#f1f1f1;
+  margin:10px 0;
+  font-size:16px;
+}
+
+.senha-box{
+  display:flex;
+  gap:10px;
+}
+
+.senha-box button{
+  width:60px;
+}
+
+button{
+  border:none;
+  cursor:pointer;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.btn-login{
+  background:#ff5722;
+  color:white;
+  padding:15px;
+  font-size:17px;
+  margin-top:15px;
+}
+
+.btn-login:hover{
+  transform:scale(1.03);
+  background:#e64a19;
+}
+
+.links{
+  margin-top:15px;
+}
+
+.links a{
+  color:#ff5722;
+  text-decoration:none;
+}
+
+/* HEADER */
+
+header{
+  background:#ff5722;
+  color:white;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header button{
+  background:white;
+  color:#ff5722;
+  padding:10px 20px;
+}
+
+/* BANNER */
+
+.banner{
+  height:350px;
+  background:url('https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=1200&auto=format&fit=crop');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.overlay{
+  background:rgba(0,0,0,0.5);
+  width:100%;
+  height:100%;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.overlay h2{
+  font-size:45px;
+}
+
+.overlay p{
+  font-size:20px;
+}
+
+/* FORM */
+
+.formulario{
+  background:white;
+  width:90%;
+  margin:30px auto;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.formulario h2{
+  margin-bottom:20px;
+  color:#ff5722;
+}
+
+.formulario button{
+  width:100%;
+  background:#ff5722;
+  color:white;
+  padding:15px;
+  margin-top:10px;
+}
+
+/* PETS */
+
+.pets-container{
+  width:90%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+  padding-bottom:50px;
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:20px;
+}
+
+.card-content h3{
+  color:#ff5722;
+  margin-bottom:10px;
+}
+
+.status{
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.acoes{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.acoes button{
+  flex:1;
+  padding:10px;
+  color:white;
+}
+
+.btn-adotar{
+  background:#4caf50;
+}
+
+.btn-editar{
+  background:#2196f3;
+}
+
+.btn-excluir{
+  background:#f44336;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+  .login-box{
+    width:95%;
+    flex-direction:column;
+    height:auto;
+  }
+
+  .login-image{
+    width:100%;
+    height:250px;
+  }
+
+  .login-form{
+    width:100%;
+  }
+
+  .overlay h2{
+    font-size:28px;
+    text-align:center;
+  }
+
+}
+
+---
+
+🔐 auth.js
+
+function mostrarSenha(){
+
+  const senha = document.getElementById("senha");
+
+  if(senha.type === "password"){
+    senha.type = "text";
+  }else{
+    senha.type = "password";
+  }
+
+}
+
+function login(){
+
+  const email = document.getElementById("email").value;
+
+  const senha = document.getElementById("senha").value;
+
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+  if(
+    usuario &&
+    email === usuario.email &&
+    senha === usuario.senha
+  ){
+
+    localStorage.setItem("logado","true");
+
+    alert("Login realizado com sucesso!");
+
+    window.location.href = "index.html";
+
+  }else{
+
+    alert("Email ou senha incorretos!");
+
+  }
+
+}
+
+function logout(){
+
+  localStorage.removeItem("logado");
+
+  window.location.href = "login.html";
+
+}
+
+---
+
+🐱 pets.js
+
+let pets = JSON.parse(localStorage.getItem("pets")) || [
+
+  {
+    id:1,
+    nome:"Mingau",
+    idade:4,
+    raca:"Persa",
+    imagem:"https://images.unsplash.com/photo-1511044568932-338cba0ad803?q=80&w=1200&auto=format&fit=crop",
+    adotado:false
+  },
+
+  {
+    id:2,
+    nome:"Luna",
+    idade:7,
+    raca:"Siamês",
+    imagem:"https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=1200&auto=format&fit=crop",
+    adotado:false
+  },
+
+  {
+    id:3,
+    nome:"Nina",
+    idade:5,
+    raca:"Maine Coon",
+    imagem:"https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=1200&auto=format&fit=crop",
+    adotado:false
+  }
+
+];
+
+function salvarPets(){
+
+  localStorage.setItem("pets",JSON.stringify(pets));
+
+}
+
+function listarPets(){
+
+  const lista = document.getElementById("listaPets");
+
+  lista.innerHTML = "";
+
+  pets.forEach((pet)=>{
+
+    lista.innerHTML += `
+    
+      <div class="card">
+
+        <img src="${pet.imagem}">
+
+        <div class="card-content">
+
+          <h3>${pet.nome}</h3>
+
+          <p>🐾 Raça: ${pet.raca}</p>
+
+          <p>🎂 Idade: ${pet.idade} meses</p>
+
+          <p class="status">
+            ${pet.adotado ? "❤️ Adotado" : "🐱 Disponível"}
+          </p>
+
+          <div class="acoes">
+
+            <button class="btn-adotar"
+              onclick="adotarPet(${pet.id})">
+              Adotar
+            </button>
+
+            <button class="btn-editar"
+              onclick="editarPet(${pet.id})">
+              Editar
+            </button>
+
+            <button class="btn-excluir"
+              onclick="excluirPet(${pet.id})">
+              Excluir
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+function adicionarPet(){
+
+  const nome =
+  document.getElementById("nomePet").value;
+
+  const idade =
+  document.getElementById("idadePet").value;
+
+  const raca =
+  document.getElementById("racaPet").value;
+
+  const imagem =
+  document.getElementById("imagemPet").value;
+
+  const novoPet = {
+
+    id:Date.now(),
+    nome,
+    idade,
+    raca,
+    imagem,
+    adotado:false
+
+  };
+
+  pets.push(novoPet);
+
+  salvarPets();
+
+  listarPets();
+
+}
+
+function adotarPet(id){
+
+  pets = pets.map((pet)=>{
+
+    if(pet.id === id){
+
+      pet.adotado = true;
+
+    }
+
+    return pet;
+
+  });
+
+  salvarPets();
+
+  listarPets();
+
+}
+
+function excluirPet(id){
+
+  pets = pets.filter((pet)=> pet.id !== id);
+
+  salvarPets();
+
+  listarPets();
+
+}
+
+function editarPet(id){
+
+  const novoNome = prompt("Novo nome:");
+
+  pets = pets.map((pet)=>{
+
+    if(pet.id === id){
+
+      pet.nome = novoNome;
+
+    }
+
+    return pet;
+
+  });
+
+  salvarPets();
+
+  listarPets();
+
+}
+
+listarPets();
