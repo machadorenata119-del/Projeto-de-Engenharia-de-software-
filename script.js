@@ -1,227 +1,219 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
+// VERIFICAR LOGIN
+
+if(
+localStorage.getItem("logado")
+!== "true"
+){
+
+window.location.href =
+"index.html";
+
 }
 
-body{
-background:#f4f7fb;
+// LOGOUT
+
+function logout(){
+
+localStorage.removeItem(
+"logado"
+);
+
+window.location.href =
+"index.html";
+
 }
 
-/* LOGIN */
+// LISTA DE ANIMAIS
 
-.login-container{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#4facfe,#00f2fe);
+let animais =
+JSON.parse(
+localStorage.getItem("animais")
+)
+||
+[
+{
+nome:"Thor",
+raca:"Labrador",
+idade:"2 anos",
+imagem:"https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800",
+descricao:"Muito brincalhão ❤️",
+adotado:false
+},
+
+{
+nome:"Luna",
+raca:"Persa",
+idade:"1 ano",
+imagem:"https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=800",
+descricao:"Muito carinhosa 🐱",
+adotado:false
+}
+];
+
+// SALVAR
+
+function salvar(){
+
+localStorage.setItem(
+"animais",
+JSON.stringify(animais)
+);
+
 }
 
-.login-box{
-background:white;
-padding:50px;
-border-radius:25px;
-width:350px;
-text-align:center;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
+// MOSTRAR ANIMAIS
+
+function mostrarAnimais(){
+
+const cards =
+document.getElementById("cards");
+
+if(!cards) return;
+
+cards.innerHTML = "";
+
+animais.forEach((animal,index)=>{
+
+cards.innerHTML += `
+
+<div class="card">
+
+<img src="${animal.imagem}">
+
+<h3>${animal.nome}</h3>
+
+<p>
+${animal.raca}
+•
+${animal.idade}
+</p>
+
+<p>
+${animal.descricao}
+</p>
+
+<div class="buttons">
+
+<button
+class="adotar"
+onclick="adotar(${index})">
+
+${animal.adotado ? "✅ Adotado" : "❤️ Adotar"}
+
+</button>
+
+<button
+class="editar"
+onclick="editar(${index})">
+
+✏️ Editar
+
+</button>
+
+<button
+class="excluir"
+onclick="excluir(${index})">
+
+🗑️ Excluir
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
 }
 
-.login-box h1{
-margin-bottom:10px;
+// ADOTAR
+
+function adotar(index){
+
+animais[index].adotado = true;
+
+salvar();
+
+mostrarAnimais();
+
+alert(
+"🐾 Solicitação enviada!"
+);
+
 }
 
-.login-box p{
-margin-bottom:25px;
-color:#666;
-}
+// EDITAR
 
-.input-group{
-display:flex;
-align-items:center;
-border:1px solid #ddd;
-padding:12px;
-border-radius:12px;
-margin-bottom:20px;
-}
+function editar(index){
 
-.input-group input{
-border:none;
-outline:none;
-width:100%;
-}
+const novoNome =
+prompt(
+"Novo nome:",
+animais[index].nome
+);
 
-.login-box button{
-width:100%;
-padding:15px;
-border:none;
-border-radius:12px;
-background:#0d6efd;
-color:white;
-font-size:18px;
-cursor:pointer;
-}
+if(novoNome){
 
-/* NAVBAR */
+animais[index].nome =
+novoNome;
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
+salvar();
 
-nav h2{
-color:#0d6efd;
-}
+mostrarAnimais();
 
-.menu{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.menu a{
-text-decoration:none;
-color:#333;
-font-weight:bold;
-}
-
-.menu button{
-padding:10px 20px;
-border:none;
-border-radius:10px;
-background:#dc3545;
-color:white;
-cursor:pointer;
-}
-
-/* HERO */
-
-.hero{
-height:250px;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#4facfe,#00f2fe);
-color:white;
-}
-
-.hero h1{
-font-size:50px;
-}
-
-/* PETS */
-
-.pets{
-padding:50px 8%;
-}
-
-.cards{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-}
-
-.card{
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
-}
-
-.card img{
-width:100%;
-height:250px;
-object-fit:cover;
-}
-
-.card h3{
-margin:20px;
-}
-
-.card p{
-margin:0 20px 20px;
-color:#666;
-}
-
-.buttons{
-display:flex;
-flex-direction:column;
-gap:10px;
-padding:20px;
-}
-
-.buttons button{
-padding:12px;
-border:none;
-border-radius:12px;
-color:white;
-cursor:pointer;
-font-size:16px;
-}
-
-.adotar{
-background:#ff4d6d;
-}
-
-.editar{
-background:#ffc107;
-color:black !important;
-}
-
-.excluir{
-background:#dc3545;
-}
-
-/* FORM */
-
-.form-container{
-max-width:500px;
-margin:50px auto;
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
-}
-
-.form-container input,
-.form-container select,
-.form-container textarea{
-width:100%;
-padding:15px;
-margin-bottom:20px;
-border-radius:12px;
-border:1px solid #ddd;
-}
-
-.form-container button{
-width:100%;
-padding:15px;
-border:none;
-border-radius:12px;
-background:#0d6efd;
-color:white;
-font-size:18px;
-cursor:pointer;
-}
-
-/* RESPONSIVO */
-
-@media(max-width:900px){
-
-.hero h1{
-font-size:35px;
-text-align:center;
-}
-
-nav{
-flex-direction:column;
-gap:15px;
 }
 
 }
+
+// EXCLUIR
+
+function excluir(index){
+
+animais.splice(index,1);
+
+salvar();
+
+mostrarAnimais();
+
+}
+
+// CADASTRAR
+
+function cadastrarAnimal(){
+
+const nome =
+document.getElementById("nome").value;
+
+const raca =
+document.getElementById("raca").value;
+
+const idade =
+document.getElementById("idade").value;
+
+const imagem =
+document.getElementById("imagem").value;
+
+const descricao =
+document.getElementById("descricao").value;
+
+animais.push({
+
+nome,
+raca,
+idade,
+imagem,
+descricao,
+adotado:false
+
+});
+
+salvar();
+
+window.location.href =
+"home.html";
+
+}
+
+mostrarAnimais();
