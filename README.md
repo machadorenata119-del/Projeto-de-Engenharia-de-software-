@@ -1,7 +1,12 @@
+
+
+
 🐾 AdotePet
 Sistema web de adoção de gatos desenvolvido com HTML, CSS e JavaScript, com foco em simplicidade, responsividade e experiência do usuário.
 O projeto foi criado para permitir que usuários possam visualizar animais disponíveis para adoção, realizar login no sistema e interagir com os cards dos pets de forma simples e intuitiva.
 📌
+
+
 Objetivo do Projeto
 O objetivo do projeto é desenvolver uma aplicação web moderna e interativa voltada para adoção de animais, utilizando tecnologias front-end.
 A plataforma permite:
@@ -11,6 +16,9 @@ adoção de animais;
 edição de informações;
 exclusão de animais;
 armazenamento local de dados utilizando LocalStorage.
+
+
+
 🖥️ Funcionalidades
 
 🔐 Sistema de Login
@@ -43,6 +51,8 @@ LocalStorage
 Hospedagem
 github.com⁠�
 netlify.com⁠�
+
+
 
 
 📚 Disciplina
