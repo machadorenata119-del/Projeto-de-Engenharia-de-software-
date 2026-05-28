@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>AdotePet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🐱 AdotePet</h1>
+  <button onclick="logout()">Sair</button>
+</header>
+
+<section class="form-pet">
+  <h2>Adicionar Novo Pet</h2>
+
+  <input type="text" id="nomePet" placeholder="Nome do gato">
+  <input type="number" id="idadePet" placeholder="Idade">
+  <input type="text" id="racaPet" placeholder="Raça">
+  <input type="text" id="imagemPet" placeholder="URL da imagem">
+
+  <button onclick="adicionarPet()">Adicionar</button>
+</section>
+
+<section id="listaPets" class="pets-container"></section>
+
+<script src="pets.js"></script>
+</body>
+</html>
