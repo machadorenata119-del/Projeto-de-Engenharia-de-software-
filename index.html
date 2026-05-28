@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,79 +20,75 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 
 <div class="login-container">
 
-    <div class="login-box">
+<div class="login-box">
 
-        <h1>🐾 AdotePet</h1>
+<h1>🐾 AdotePet</h1>
 
-        <p>
-            Faça login para entrar
-        </p>
+<p>
+Faça login para continuar
+</p>
 
-        <div class="input-group">
+<div class="input-group">
 
-            <i class="fa fa-envelope"></i>
+<i class="fa fa-envelope"></i>
 
-            <input
-            type="email"
-            id="email"
-            placeholder="Email">
-
-        </div>
-
-        <div class="input-group">
-
-            <i class="fa fa-lock"></i>
-
-            <input
-            type="password"
-            id="senha"
-            placeholder="Senha">
-
-        </div>
-
-        <button onclick="login()">
-            Entrar
-        </button>
-
-    </div>
+<input
+type="email"
+id="email"
+placeholder="Digite seu email">
 
 </div>
 
-<script>
+<div class="input-group">
 
-function login(){
+<i class="fa fa-lock"></i>
 
-    const email =
-    document.getElementById("email").value;
+<input
+type="password"
+id="senha"
+placeholder="Digite sua senha">
 
-    const senha =
-    document.getElementById("senha").value;
+</div>
 
-    if(
-        email === "admin@gmail.com"
-        &&
-        senha === "123"
-    ){
+<button onclick="login()">
+Entrar
+</button>
 
-        localStorage.setItem(
-            "logado",
-            "true"
-        );
+<div class="links">
 
-        window.location.href =
-        "home.html";
+<a href="#"
+onclick="abrirCadastro()">
 
-    }
+Cadastrar novo usuário
 
-    else{
+</a>
 
-        alert("❌ Login inválido");
+<a href="#"
+onclick="esqueciSenha()">
 
-    }
+Esqueci minha senha
 
-}
+</a>
 
-</script>
+</div>
 
-</body>
-</html>
+</div>
+
+</div>
+
+<!-- MODAL CADASTRO -->
+
+<div class="modal"
+id="modalCadastro">
+
+<div class="modal-box">
+
+<h2>
+Cadastrar Usuário
+</h2>
+
+<input
+type="email"
+id="novoEmail"
+placeholder
+
