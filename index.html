@@ -1,59 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+<title>AdotePet</title>
 
-    <title>AdotePet</title>
+<link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
+
 <body>
 
-<header>
+<nav>
 
-    <nav>
+    <h2>🐾 AdotePet</h2>
 
-        <h2>🐾 AdotePet</h2>
+    <div class="menu">
 
-        <div class="menu">
+        <a href="index.html">Início</a>
+        <a href="cadastrar.html">Cadastrar</a>
 
-            <a href="#">Início</a>
-            <a href="#">Animais</a>
-            <a href="#">Contato</a>
+    </div>
 
-        </div>
+</nav>
 
-    </nav>
+<header class="hero">
 
-    <div class="hero">
+    <div class="hero-text">
 
-        <div class="hero-text">
+        <h1>
+            Adote um amigo ❤️
+        </h1>
 
-            <h1>
-                Adote um amigo
-                para a vida ❤️
-            </h1>
-
-            <p>
-                Encontre cães e gatos esperando
-                por um lar cheio de amor.
-            </p>
-
-            <button>
-                Ver Animais
-            </button>
-
-        </div>
-
-        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800">
+        <p>
+            Animais esperando por um lar cheio de amor.
+        </p>
 
     </div>
 
@@ -61,57 +49,93 @@
 
 <section class="pets">
 
-    <h2>
-        🐶 Animais Disponíveis
-    </h2>
+<h2>🐶 Animais Disponíveis</h2>
 
-    <div class="cards">
+<div class="cards" id="cards">
 
-        <div class="card">
+<div class="card">
 
-            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800">
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800">
 
-            <h3>Thor</h3>
+<h3>Thor</h3>
 
-            <p>Labrador • 2 anos</p>
+<p>Labrador • 2 anos</p>
 
-            <button>
-                ❤️ Adotar
-            </button>
+<div class="buttons">
 
-        </div>
+<button class="adotar">
+❤️ Adotar
+</button>
 
-        <div class="card">
+<button class="editar">
+✏️ Editar
+</button>
 
-            <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=800">
+<button class="excluir">
+🗑️ Excluir
+</button>
 
-            <h3>Luna</h3>
+</div>
 
-            <p>Persa • 1 ano</p>
+</div>
 
-            <button>
-                ❤️ Adotar
-            </button>
+<div class="card">
 
-        </div>
+<img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=800">
 
-        <div class="card">
+<h3>Luna</h3>
 
-            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=800">
+<p>Persa • 1 ano</p>
 
-            <h3>Max</h3>
+<div class="buttons">
 
-            <p>Golden Retriever • 3 anos</p>
+<button class="adotar">
+❤️ Adotar
+</button>
 
-            <button>
-                ❤️ Adotar
-            </button>
+<button class="editar">
+✏️ Editar
+</button>
 
-        </div>
+<button class="excluir">
+🗑️ Excluir
+</button>
 
-    </div>
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=800">
+
+<h3>Max</h3>
+
+<p>Golden Retriever • 3 anos</p>
+
+<div class="buttons">
+
+<button class="adotar">
+❤️ Adotar
+</button>
+
+<button class="editar">
+✏️ Editar
+</button>
+
+<button class="excluir">
+🗑️ Excluir
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
