@@ -2,53 +2,31 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AdotePet</title>
-
+  <title>Login - AdotePet</title>
   <link rel="stylesheet" href="style.css">
-
-  <script>
-    // Verifica login
-    const usuarioLogado = localStorage.getItem("logado");
-
-    if(usuarioLogado !== "true"){
-      window.location.href = "login.html";
-    }
-  </script>
 </head>
+<body class="login-body">
 
-<body>
+<div class="login-box">
 
-<header>
-  <h1>🐱 AdotePet</h1>
+  <div class="login-form">
 
-  <button onclick="logout()">Sair</button>
-</header>
+    <h1>🐱 AdotePet</h1>
 
-<section class="banner">
-  <div class="overlay">
-    <h2>Encontre seu novo melhor amigo ❤️</h2>
-    <p>Adote um gatinho e transforme vidas</p>
+    <input type="email" id="email" placeholder="E-mail">
+    <input type="password" id="senha" placeholder="Senha">
+
+    <button onclick="login()">Entrar</button>
+
+    <p>
+      Não tem conta?
+      <a href="cadastro.html">Criar</a>
+    </p>
+
   </div>
-</section>
 
-<section class="formulario">
-  <h2>Adicionar Novo Gatinho</h2>
+</div>
 
-  <input type="text" id="nomePet" placeholder="Nome do gatinho">
-
-  <input type="number" id="idadePet" placeholder="Idade em meses">
-
-  <input type="text" id="racaPet" placeholder="Raça">
-
-  <input type="text" id="imagemPet" placeholder="URL da imagem">
-
-  <button onclick="adicionarPet()">Adicionar Pet</button>
-</section>
-
-<section class="pets-container" id="listaPets"></section>
-
-<script src="pets.js"></script>
-
+<script src="auth.js"></script>
 </body>
 </html>
